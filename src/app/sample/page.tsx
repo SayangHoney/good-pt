@@ -1,7 +1,7 @@
-import { memo } from 'react';
+import { Sample } from './Sample';
 
-const Sample = () => {
-  return <p>하유민 바보</p>;
+const SamplePage = () => {
+  return <Sample />;
 };
 
-export default memo(Sample);
+export default SamplePage;
