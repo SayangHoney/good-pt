@@ -1,7 +1,5 @@
 import { Sample } from './Sample';
 
-const SamplePage = () => {
+export default function SamplePage() {
   return <Sample />;
-};
-
-export default SamplePage;
+}
