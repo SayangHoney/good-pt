@@ -1,6 +1,12 @@
-import Image from 'next/image';
+'use client';
+
 import styles from './page.module.css';
+import { TopComponent } from '@/components/Top';
 
 export default function Home() {
-  return <main className={styles.main}>메인 페이지</main>;
+  return (
+    <main className={styles.main}>
+      <TopComponent />
+    </main>
+  );
 }

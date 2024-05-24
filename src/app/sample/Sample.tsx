@@ -1,14 +1,15 @@
-'use client';
-
+import { memo } from 'react';
 import styled from 'styled-components';
 
-export const Sample = () => {
+function Sample() {
   return (
     <SampleWrap>
       <p>하유민</p>
     </SampleWrap>
   );
-};
+}
+
+export default memo(Sample);
 
 const SampleWrap = styled.div`
   display: flex;
