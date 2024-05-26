@@ -7,9 +7,13 @@ import LogoImage from '@/assets/logo.png';
 export const TopComponent = () => {
   return (
     <TopWrap>
-      <div>
-        <Image src={LogoImage} alt="logo" width={70} height={70} />
-      </div>
+      <Image
+        src={LogoImage}
+        alt="logo"
+        width={70}
+        height={70}
+        style={{ marginLeft: '100px', position: 'relative' }}
+      />
 
       <MenuWrap>
         <div className="menu-item">Home</div>
@@ -26,20 +30,21 @@ const TopWrap = styled.div`
   justify-content: space-between;
   padding: 10px;
   width: 100%;
-
-  position: fixed;
+  padding: 20px;
 `;
 
 const MenuWrap = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
+  margin-right: 100px;
 
   .menu-item {
     height: 50px;
     font-size: 20px;
     color: white;
+    padding: 20px;
 
     display: flex;
     flex-direction: column;
