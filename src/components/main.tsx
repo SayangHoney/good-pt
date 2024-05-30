@@ -140,7 +140,7 @@ const MainWrap = styled.div`
     .mega-phone {
       @keyframes motion {
         0% {
-          margin-top: 10px;
+          margin-top: 30px;
         }
         100% {
           margin-top: 0px;
@@ -153,7 +153,7 @@ const MainWrap = styled.div`
           margin-top: 0px;
         }
         100% {
-          margin-top: 10px;
+          margin-top: 30px;
         }
       }
     }
