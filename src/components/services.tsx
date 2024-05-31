@@ -6,6 +6,6 @@ export const Services = () => {
 
 const ServicesWrap = styled.div`
   width: 100%;
-  height: 100px;
-  background-image: linear-gradient(black 50%, white);
+  height: 1000px;
+  background-image: linear-gradient(black, #2b73ff, white);
 `;

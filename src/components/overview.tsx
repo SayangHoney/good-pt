@@ -5,24 +5,75 @@ export const Overview = () => {
     <OverviewWrap>
       <span className="title">Overview</span>
       <div className="comment_1">
-        <span>갑작스러운 발표에</span>
+        <span>나날이 늘어나는</span>
         <span>
-          <strong>당황했던 경험</strong>이 있나요?
+          <strong>발표의 중요성</strong>
         </span>
       </div>
       <div className="comment_2">
         <span>
-          굿피티는 효과적인 발표를 위한 발표능력 향상 도우미 앱 서비스입니다.
+          서류 봉투에서 제품을 꺼내 맥북 에어의 가벼움과 휴대성을 새롭게
+          보여주었던 스티브잡스.
         </span>
-        <span>즉흥발표 연습부터 맞춤 연습까지 굿피티와 함께하세요!</span>
+        <span>그의 프레젠테이션은 오늘까지도 크게 회자되고 있어요.</span>
+        <span>
+          많은 기업에서도 지원자, 신입에게 PT를 제안하는 경우가
+          늘어나는상황에서,
+        </span>
+        <span>
+          굿피티는 효과적인 발표를 위한 학습을 도와줄 수 있는 서비스입니다.
+        </span>
       </div>
+
+      <SpeechBubbleWrap>
+        <SpeechBubbleRightWrap style={{ top: '600px', marginRight: '300px' }}>
+          <div>{'<대충 이모티콘>'}</div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}>
+            <p>정해진 시간 안에 발표하는 것이 너무 어려워요.</p>
+            <p>대본을 안보고 발표를 잘 하고 싶어요!</p>
+          </div>
+        </SpeechBubbleRightWrap>
+
+        <SpeechBubbleLeftWrap style={{ top: '880px', marginLeft: '300px' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}>
+            <p>발표 자료 정리하고 수정하는데 시간을 단축하고 싶어요.</p>
+            <p>간단하게 요약해주는 서비스가 있었으면 좋겠어요!</p>
+          </div>
+          <div>{'<대충 이모티콘>'}</div>
+        </SpeechBubbleLeftWrap>
+
+        <SpeechBubbleRightWrap style={{ top: '1160px', marginRight: '300px' }}>
+          <div>{'<대충 이모티콘>'}</div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}>
+            <p>발음이 정확하지 않아 말할 때 전달력이 떨어지는게</p>
+            <p>고민이에요. 개선할 방법이 없을까요?</p>
+          </div>
+        </SpeechBubbleRightWrap>
+      </SpeechBubbleWrap>
     </OverviewWrap>
   );
 };
+
 const OverviewWrap = styled.span`
   color: white;
   height: fit-content;
   width: 100%;
+  position: relative;
 
   span {
     display: flex;
@@ -40,9 +91,63 @@ const OverviewWrap = styled.span`
     font-size: 60px;
     line-height: 90px;
     margin-bottom: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
   }
   .comment_2 {
     font-size: 32px;
     line-height: 48px;
+  }
+`;
+
+const SpeechBubbleWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 200px;
+`;
+
+const SpeechBubbleRightWrap = styled.div`
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 113px 113px 0 113px;
+  height: 226px;
+  width: 948px;
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  p {
+    font-size: 28px;
+    line-height: 46px;
+    color: black;
+    font-weight: 500;
+  }
+`;
+
+const SpeechBubbleLeftWrap = styled.div`
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 113px 113px 113px 0;
+  height: 226px;
+  width: 948px;
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  p {
+    font-size: 28px;
+    line-height: 46px;
+    color: black;
+    font-weight: 500;
   }
 `;
