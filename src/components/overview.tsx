@@ -52,7 +52,11 @@ export const Overview = () => {
           <div>{'<대충 이모티콘>'}</div>
         </SpeechBubbleLeftWrap>
 
-        <SpeechBubbleRightWrap style={{ top: '1160px', marginRight: '300px' }}>
+        <SpeechBubbleRightWrap
+          style={{
+            top: '1160px',
+            marginRight: '300px',
+          }}>
           <div>{'<대충 이모티콘>'}</div>
           <div
             style={{
@@ -74,7 +78,7 @@ const OverviewWrap = styled.span`
   height: fit-content;
   width: 100%;
   position: relative;
-  background-image: linear-gradient(black, #2b73ff, white);
+  background-image: linear-gradient(black 40%, #2b73ff, #f1faff);
 
   span {
     display: flex;
