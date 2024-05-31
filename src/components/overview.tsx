@@ -74,6 +74,7 @@ const OverviewWrap = styled.span`
   height: fit-content;
   width: 100%;
   position: relative;
+  background-image: linear-gradient(black, #2b73ff, white);
 
   span {
     display: flex;
@@ -108,6 +109,8 @@ const SpeechBubbleWrap = styled.div`
   width: 100%;
   align-items: center;
   margin-top: 200px;
+  gap: 50px;
+  height: fit-content;
 `;
 
 const SpeechBubbleRightWrap = styled.div`
@@ -115,7 +118,7 @@ const SpeechBubbleRightWrap = styled.div`
   border-radius: 113px 113px 0 113px;
   height: 226px;
   width: 948px;
-  position: absolute;
+  /* position: absolute; */
 
   display: flex;
   flex-direction: row;
@@ -136,7 +139,7 @@ const SpeechBubbleLeftWrap = styled.div`
   border-radius: 113px 113px 113px 0;
   height: 226px;
   width: 948px;
-  position: absolute;
+  /* position: absolute; */
 
   display: flex;
   flex-direction: row;
