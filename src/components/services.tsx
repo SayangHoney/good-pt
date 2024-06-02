@@ -1,9 +1,57 @@
+import { ReactNode, useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
+
+import SpeechBubble from '@/assets/speech_practice.png';
+import AiData from '@/assets/ai_summary.png';
+import Chart from '@/assets/chart.png';
+
+// 바탕 사각형
+const Squire = ({
+  children,
+  className,
+  name,
+}: {
+  children: ReactNode;
+  name: string;
+  className?: string;
+}) => {
+  return (
+    <SquireAminationWrap
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
+      <SquireWrap className={className}>{children}</SquireWrap>
+      <strong
+        style={{ fontSize: '40px', lineHeight: '90px', color: '#2B73FF' }}>
+        {name}
+      </strong>
+    </SquireAminationWrap>
+  );
+};
 
 export const Services = () => {
-  const Squire = ({ className }: { className?: string }) => {
-    return <SquireWrap className={className} />;
-  };
+  const [scroll, setScroll] = useState('');
+
+  const onScroll = useCallback((event: any) => {
+    const { scrollY } = window;
+    console.log('scrollY', scrollY);
+    if (scrollY >= 48) {
+      setScroll('header-fixed');
+    } else setScroll('');
+    // 4500px일 때 동작
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // remove event on unmount to prevent a memory leak with the cleanup
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [window.scroll()]);
+
   return (
     <ServicesWrap>
       <QuestionWrap>
@@ -24,9 +72,22 @@ export const Services = () => {
       </QuestionWrap>
 
       <MethodsWrap>
-        <Squire />
-        <Squire />
-        <Squire />
+        <Squire name="발표 연습">
+          <Image
+            className="speech-bubble"
+            src={SpeechBubble}
+            alt="말풍선"
+            width={318}
+          />
+        </Squire>
+
+        <Squire name="AI 자료 요약">
+          <Image className="ai-data" src={AiData} alt="데이터" width={318} />
+        </Squire>
+
+        <Squire name="학습 결과 분석">
+          <Image className="chart" src={Chart} alt="차트" width={318} />
+        </Squire>
       </MethodsWrap>
     </ServicesWrap>
   );
@@ -35,7 +96,7 @@ export const Services = () => {
 const ServicesWrap = styled.div`
   padding-top: 200px;
   width: 100%;
-  height: fit-content;
+  height: 1600px;
   background: #f1faff;
   display: flex;
   flex-direction: column;
@@ -81,13 +142,8 @@ const MethodsWrap = styled.div`
   justify-content: center;
 `;
 
-const SquireWrap = styled.div`
-  width: 395px;
-  height: 395px;
-  background-image: linear-gradient(-29deg, #2b73ff, #3bd0ff);
-  border-radius: 60px;
+const SquireAminationWrap = styled.div`
   animation: fadein 2s, moveup 1s;
-
   @keyframes fadein {
     from {
       opacity: 0;
@@ -98,6 +154,40 @@ const SquireWrap = styled.div`
   }
 
   @keyframes moveup {
+    from {
+      transform: translateY(100px);
+    }
+    to {
+      transform: translateY(0px);
+    }
+  }
+`;
+
+const SquireWrap = styled.div`
+  width: 395px;
+  height: 395px;
+  background-image: linear-gradient(-29deg, #2b73ff, #3bd0ff);
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-fill-mode: backwards;
+`;
+
+const IconWrap = styled.div`
+  animation: fadein1 2s, moveup1 1s;
+  animation-delay: 300ms;
+
+  @keyframes fadein1 {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes moveup1 {
     from {
       transform: translateY(100px);
     }
