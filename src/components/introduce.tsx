@@ -1,20 +1,33 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import OnBording1 from '@/assets/onbording/onbording1.png';
-import OnBording2 from '@/assets/onbording/onbording2.png';
-import OnBording3 from '@/assets/onbording/onbording3.png';
-import OnBording4 from '@/assets/onbording/onbording4.png';
-import { ReactNode } from 'react';
+import Onbording from '@/assets/onbording/onbording_group.png';
+// import Home from '@/assets/home/home.png';
+
+import { LegacyRef, ReactNode, useEffect, useRef } from 'react';
+import { useIntroduce } from './introduce.hook';
+import { Home } from './layouts/home';
 
 interface ILayout {
   title: string;
   Comment1: ReactNode;
   Comment2: ReactNode;
   Images: ReactNode;
+  ref?: LegacyRef<HTMLDivElement>;
 }
 
 export const Intorduce = () => {
+  const {
+    target1,
+    target2,
+    target2_1,
+    target2_2,
+    target2_3,
+    target2_4,
+    target3,
+    target4,
+  } = useIntroduce();
+
   const Layout = ({ title, Comment1, Comment2, Images }: ILayout) => (
     <LayoutWrap>
       <div
@@ -22,7 +35,7 @@ export const Intorduce = () => {
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          gap: '60px',
+          gap: '100px',
         }}>
         <div>
           <p
@@ -40,8 +53,8 @@ export const Intorduce = () => {
           <LayoutComment1Wrap>{Comment1}</LayoutComment1Wrap>
           <LayoutComment2Wrap>{Comment2}</LayoutComment2Wrap>
         </div>
-        <div>{Images}</div>
       </div>
+      <div>{Images}</div>
     </LayoutWrap>
   );
 
@@ -64,34 +77,26 @@ export const Intorduce = () => {
           </div>
         }
         Images={
-          <ImagesWrap>
-            <Image src={OnBording1} alt="onbording1" width={426} height={826} />
-            <Image src={OnBording2} alt="onbording2" width={302} height={655} />
-            {/* margin 없는 이미지로 교체 예정 */}
-            {/* <Image src={OnBording3} alt="onbording3" width={302} height={655} /> */}
-            {/* <Image src={OnBording4} alt="onbording4" width={302} height={655} /> */}
-            {/* margin 없는 이미지로 교체 예정 */}
-          </ImagesWrap>
+          <Image
+            ref={target1}
+            src={Onbording}
+            alt="onbording1"
+            style={{
+              width: '100%',
+              opacity: 0,
+              transform: 'translateY(100px)',
+              transition: 'all 1s',
+            }}
+          />
         }
       />
 
-      <Layout
-        title="Home"
-        Comment1={
-          <div>
-            <p>
-              <strong>향상된 발표능력</strong>을
-            </p>
-            <p>홈에서 한번에 확인해요.</p>
-          </div>
-        }
-        Comment2={
-          <p>
-            발표 연습을 통해 학습한 결과를 바탕으로 성장 그래프를 보여줄게요!
-            나날이 늘어나는 발표 실력을 보며 향상된 발표 능력을 확인해보세요
-          </p>
-        }
-        Images={<></>}
+      <Home
+        target2={target2}
+        target2_1={target2_1}
+        target2_2={target2_2}
+        target2_3={target2_3}
+        target2_4={target2_4}
       />
       <Layout
         title="Learning"
@@ -204,10 +209,4 @@ const LayoutComment2Wrap = styled.div`
   font-weight: lighter;
   font-size: 26px;
   line-height: 34px;
-`;
-
-const ImagesWrap = styled.div`
-  display: 'flex';
-  flex-direction: row;
-  justify-content: flex-end;
 `;
