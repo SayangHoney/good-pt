@@ -243,7 +243,6 @@ const LayoutWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 1380px;
   gap: 100px;
   padding: 180px 230px;
   transform: translateY(50px);

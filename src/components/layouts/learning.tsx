@@ -74,9 +74,6 @@ export const Learning = () => {
     }
   }, [ref3]);
 
-  useEffect(() => {}, [ref2]);
-  useEffect(() => {}, [ref3]);
-
   return (
     <LayoutWrap>
       <DescriptionWrap>

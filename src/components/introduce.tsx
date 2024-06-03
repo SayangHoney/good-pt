@@ -9,6 +9,7 @@ import { useIntroduce } from './introduce.hook';
 import { Home } from './layouts/home';
 import { Learning } from './layouts/learning';
 import { StudyCalendar } from './layouts/studyCalednar';
+import { AiSummary } from './layouts/aiSummary';
 
 interface ILayout {
   title: string;
@@ -19,16 +20,8 @@ interface ILayout {
 }
 
 export const Intorduce = () => {
-  const {
-    target1,
-    target2,
-    target2_1,
-    target2_2,
-    target2_3,
-    target2_4,
-    target3,
-    target4,
-  } = useIntroduce();
+  const { target1, target2, target2_1, target2_2, target2_3, target2_4 } =
+    useIntroduce();
 
   const Layout = ({ title, Comment1, Comment2, Images }: ILayout) => (
     <LayoutWrap>
@@ -105,24 +98,8 @@ export const Intorduce = () => {
 
       <StudyCalendar />
 
-      <Layout
-        title="AI Summary"
-        Comment1={
-          <div>
-            <p>
-              <strong>AI 정리</strong>로 발표 자료를
-            </p>
-            <p> 빠르고 쉽게 요약해요.</p>
-          </div>
-        }
-        Comment2={
-          <p>
-            파일 또는 이미지를 업로드 하면 AI인 말풍이가 자료를 분석 및 요약하여
-            핵심 내용이 돋보이도록 정리해요. 발표 준비가 더욱 쉬워질 거에요!
-          </p>
-        }
-        Images={<></>}
-      />
+      <AiSummary />
+
       <Layout
         title="Posting"
         Comment1={

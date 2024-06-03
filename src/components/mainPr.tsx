@@ -3,7 +3,12 @@ import styled from 'styled-components';
 export const MainPr = () => {
   const CommentComponent = () => {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '80px',
+        }}>
         <div
           style={{
             position: 'relative',
@@ -35,7 +40,6 @@ export const MainPr = () => {
           <div style={{ fontSize: '32px', lineHeight: '48px' }}>
             발표에 필요한 모든 학습을 도와줄게요!
           </div>
-          {/* <div style={{ fontSize: '32px', lineHeight: '48px' }}>🤔</div> */}
         </div>
       </div>
     );
@@ -45,7 +49,7 @@ export const MainPr = () => {
     <div style={{ width: '100%' }}>
       <div
         style={{
-          marginTop: '200px',
+          marginTop: '500px',
           height: '847px',
           overflow: 'hidden',
         }}>
