@@ -7,6 +7,7 @@ import Onbording from '@/assets/onbording/onbording_group.png';
 import { LegacyRef, ReactNode, useEffect, useRef } from 'react';
 import { useIntroduce } from './introduce.hook';
 import { Home } from './layouts/home';
+import { Learning } from './layouts/learning';
 
 interface ILayout {
   title: string;
@@ -98,26 +99,9 @@ export const Intorduce = () => {
         target2_3={target2_3}
         target2_4={target2_4}
       />
-      <Layout
-        title="Learning"
-        Comment1={
-          <div>
-            <p>
-              학습을 선택하여 <strong>실질적인</strong>
-            </p>
-            <p>
-              <strong>발표 연습</strong>을 도와줄게요.
-            </p>
-          </div>
-        }
-        Comment2={
-          <p>
-            즉흥 발표, 발음/속도 조절, 발성 연습으로 실제와 같은 시나리오를 통해
-            발표 연습을 도와드려요.
-          </p>
-        }
-        Images={<></>}
-      />
+
+      <Learning />
+
       <Layout
         title="Study Calendar"
         Comment1={
