@@ -8,6 +8,7 @@ import { LegacyRef, ReactNode, useEffect, useRef } from 'react';
 import { useIntroduce } from './introduce.hook';
 import { Home } from './layouts/home';
 import { Learning } from './layouts/learning';
+import { StudyCalendar } from './layouts/studyCalednar';
 
 interface ILayout {
   title: string;
@@ -83,7 +84,7 @@ export const Intorduce = () => {
             src={Onbording}
             alt="onbording1"
             style={{
-              width: '100%',
+              width: '1386px',
               opacity: 0,
               transform: 'translateY(100px)',
               transition: 'all 1s',
@@ -102,26 +103,8 @@ export const Intorduce = () => {
 
       <Learning />
 
-      <Layout
-        title="Study Calendar"
-        Comment1={
-          <div>
-            <p>
-              <strong>학습 일정</strong>을 기록하고
-            </p>
-            <p>
-              <strong>맞춤 학습</strong>을 제공받아요.
-            </p>
-          </div>
-        }
-        Comment2={
-          <p>
-            캘린더를 통해 오늘 학습할 내용을 파악하고 이전에 했던 학습 기록을
-            찾아볼 수 있어요.
-          </p>
-        }
-        Images={<></>}
-      />
+      <StudyCalendar />
+
       <Layout
         title="AI Summary"
         Comment1={
@@ -167,6 +150,7 @@ const IntroduceWrap = styled.div`
   background: black;
   display: flex;
   flex-direction: column;
+  margin: 0 0 auto;
 `;
 
 const LayoutWrap = styled.div`
