@@ -2,8 +2,8 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import HomePicture from '@/assets/home/home.png';
-import PointLineR from '@/assets/point_line_to_right.png';
-import PointLineL from '@/assets/point_line_to_left.png';
+import Description1 from '@/assets/home/description1.png';
+import Description2 from '@/assets/home/description2.png';
 import Description3 from '@/assets/home/description3.png';
 import Description4 from '@/assets/home/description4.png';
 import { MutableRefObject, forwardRef } from 'react';
@@ -50,12 +50,36 @@ export const Home = forwardRef(
           </div>
         </DescriptionWrap>
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            position: 'relative',
-          }}>
+        {/* contents */}
+        <ContentsWrap>
+          <DescriptionLeftWrap>
+            <Image
+              ref={target2_2}
+              src={Description2}
+              alt="설명_l1"
+              style={{
+                position: 'relative',
+                top: '500px',
+                right: '-50px',
+                transition: 'all 1s',
+                transform: 'translateY(-50px)',
+                opacity: 0,
+              }}
+            />
+            <Image
+              ref={target2_3}
+              src={Description3}
+              alt="설명_l2"
+              style={{
+                position: 'relative',
+                top: '900px',
+                right: '-60px',
+                transition: 'all 1s',
+                transform: 'translateY(-50px)',
+                opacity: 0,
+              }}
+            />
+          </DescriptionLeftWrap>
           <Image
             src={HomePicture}
             alt="home"
@@ -65,36 +89,35 @@ export const Home = forwardRef(
               transition: 'all 1s',
             }}
           />
-
-          <Description1Wrap ref={target2_1}>
-            <Image src={PointLineR} alt="설명R" style={{ marginTop: '8px' }} />
-
-            <div className="text">
-              <div className="title">내 계정 및 학습 현황 확인</div>
-              <div className="contents">
-                프로필 등록 및 내 계정 설정을 할 수 있으며, 전체 학습 시간, 학습
-                레벨, 내가 말한 문장을 확인할 수 있어요.
-              </div>
-            </div>
-          </Description1Wrap>
-          <Description2Wrap ref={target2_2}>
-            <div className="text">
-              <div className="title">월별 발표 개선 현황 확인</div>
-              <div className="contents">
-                월별로 목표 점수에 현재 얼마나 도달했는지 그래프와 함께
-                확인해요.
-              </div>
-            </div>
-
-            <Image src={PointLineL} alt="설명L" style={{ marginTop: '8px' }} />
-          </Description2Wrap>
-          <Description3Wrap ref={target2_3}>
-            <Image src={Description3} alt="설명3" />
-          </Description3Wrap>
-          <Description4Wrap ref={target2_4}>
-            <Image src={Description4} alt="설명4" />
-          </Description4Wrap>
-        </div>
+          <DescriptionRightWrap>
+            <Image
+              ref={target2_1}
+              src={Description1}
+              alt="설명_r1"
+              style={{
+                position: 'relative',
+                top: '300px',
+                left: '-30px',
+                transition: 'all 1s',
+                transform: 'translateY(-50px)',
+                opacity: 0,
+              }}
+            />
+            <Image
+              ref={target2_4}
+              src={Description4}
+              alt="설명_r2"
+              style={{
+                position: 'relative',
+                top: '1300px',
+                left: '-50px',
+                transition: 'all 1s',
+                transform: 'translateY(-50px)',
+                opacity: 0,
+              }}
+            />
+          </DescriptionRightWrap>
+        </ContentsWrap>
       </LayoutWrap>
     );
   }
@@ -142,81 +165,22 @@ const LayoutComment2Wrap = styled.div`
   line-height: 34px;
 `;
 
-const Description1Wrap = styled.div`
-  right: 0px;
-  top: 200px;
+const ContentsWrap = styled.div`
   display: flex;
   flex-direction: row;
-  position: absolute;
-  gap: 20px;
-  width: 500px;
-  height: fit-content;
-  transform: translateY(50px);
-  transition: all 1s;
-
-  .text {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    .title {
-      font-size: 22px;
-      color: #1ac8ff;
-      font-weight: bold;
-      line-height: auto;
-    }
-
-    .contents {
-      font-size: 18px;
-      line-height: 28px;
-      color: #d9d9d9;
-    }
-  }
+  justify-content: center;
+  position: relative;
 `;
 
-const Description2Wrap = styled.div`
-  left: 100px;
-  top: 500px;
+const DescriptionLeftWrap = styled.div`
   display: flex;
-  flex-direction: row;
-  position: absolute;
-  width: 400px;
-  height: fit-content;
-  transform: translateY(50px);
-  transition: all 1s;
-  opacity: 0;
-
-  .text {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    .title {
-      font-size: 22px;
-      color: #1ac8ff;
-      font-weight: bold;
-      line-height: auto;
-    }
-    .contents {
-      font-size: 18px;
-      line-height: 28px;
-      color: #d9d9d9;
-    }
-  }
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 1;
 `;
 
-const Description3Wrap = styled.div`
-  position: absolute;
-  left: 150px;
-  top: 1100px;
-  transform: translateY(50px);
-  transition: all 1s;
-  opacity: 0;
-`;
-
-const Description4Wrap = styled.div`
-  position: absolute;
-  right: 100px;
-  top: 1400px;
-  transform: translateY(50px);
-  transition: all 1s;
-  opacity: 0;
+const DescriptionRightWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
 `;
