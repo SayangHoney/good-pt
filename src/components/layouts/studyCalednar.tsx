@@ -108,7 +108,7 @@ export const StudyCalendar = () => {
             fontSize: '38px',
             lineHeight: '90px',
           }}>
-          Learning
+          Study Calendar
         </TitleWrap>
 
         <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
