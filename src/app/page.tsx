@@ -6,6 +6,7 @@ import { TopComponent } from '@/components/Top';
 import { MainPr } from '@/components/mainPr';
 import { Overview } from '@/components/overview';
 import { Services } from '@/components/services';
+import { Intorduce } from '@/components/introduce';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <MainPr />
       <Overview />
       <Services />
+      <Intorduce />
     </main>
   );
 }

@@ -33,24 +33,7 @@ const Squire = ({
 };
 
 export const Services = () => {
-  const [scroll, setScroll] = useState('');
-
-  const onScroll = useCallback((event: any) => {
-    const { scrollY } = window;
-    console.log('scrollY', scrollY);
-    if (scrollY >= 48) {
-      setScroll('header-fixed');
-    } else setScroll('');
-    // 4500px일 때 동작
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll, { passive: true });
-    // remove event on unmount to prevent a memory leak with the cleanup
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, [window.scroll()]);
+  // 4500px일 때 스크롤이벤트 동작
 
   return (
     <ServicesWrap>
