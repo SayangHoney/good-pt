@@ -107,42 +107,43 @@ export const Learning = () => {
         </div>
       </DescriptionWrap>
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          position: 'relative',
-          flexDirection: 'row',
-          gap: '80px',
-        }}>
+      <ContentsWrap>
         <Image
           src={Phone}
           alt="phone"
           width={534}
           ref={ref1}
           style={{
-            // opacity: 0,
             transform: 'translateY(50px)',
             transition: 'all 1s',
           }}
         />
 
-        <Image
-          src={Content}
-          alt="content"
-          width={425}
-          ref={ref2}
+        <div
           style={{
-            transition: 'all 1s',
-            animationDelay: '1s',
-          }}
-        />
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Image
+            src={Content}
+            alt="content"
+            width={425}
+            ref={ref2}
+            style={{
+              transition: 'all 1s',
+              animationDelay: '1s',
+            }}
+          />
 
-        <DescriptionContentWrap ref={ref3}>
-          <Image src={Description} alt="설명4" />
-        </DescriptionContentWrap>
-      </div>
+          <div
+            style={{ transition: 'all 1s', animationDelay: '1s' }}
+            ref={ref3}>
+            <Image src={Description} alt="설명" />
+          </div>
+        </div>
+      </ContentsWrap>
     </LayoutWrap>
   );
 };
@@ -189,11 +190,12 @@ const LayoutComment2Wrap = styled.div`
   line-height: 34px;
 `;
 
-const DescriptionContentWrap = styled.div`
-  position: absolute;
-  right: 260px;
-  bottom: 100px;
-  transform: translateY(50px);
-  transition: all 1s;
-  opacity: 0;
+const ContentsWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: row;
+  gap: 80px;
 `;
