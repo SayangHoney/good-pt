@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react';
 
 export const useIntroduce = () => {
-  const target1 = useRef<any>(null);
-
   const target2 = useRef<any>(null);
   const target2_1 = useRef<any>(null);
   const target2_2 = useRef<any>(null);
@@ -12,28 +10,6 @@ export const useIntroduce = () => {
   const target3 = useRef<any>(null);
 
   const target4 = useRef<any>(null);
-
-  useEffect(() => {
-    let observer: IntersectionObserver;
-
-    if (target1) {
-      observer = new IntersectionObserver(
-        ([e]) => {
-          const target = e.target as HTMLElement;
-          if (e.isIntersecting) {
-            target.style.opacity = '1';
-            target.style.transform = 'translateY(50px)';
-          } else {
-            target.style.opacity = '0';
-            target.style.transform = 'translateY(100px)';
-          }
-        },
-        { threshold: 0.5 }
-      );
-
-      observer.observe(target1.current as Element);
-    }
-  }, [target1]);
 
   useEffect(() => {
     let observer: IntersectionObserver;
@@ -141,7 +117,6 @@ export const useIntroduce = () => {
   }, [target2_4]);
 
   return {
-    target1,
     target2,
     target2_1,
     target2_2,

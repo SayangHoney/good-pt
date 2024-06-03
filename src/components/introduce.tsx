@@ -1,62 +1,21 @@
-import Image from 'next/image';
 import styled from 'styled-components';
 
-import Onbording from '@/assets/onbording/onbording_group.png';
-// import Home from '@/assets/home/home.png';
-
-import { LegacyRef, ReactNode, useEffect, useRef } from 'react';
 import { useIntroduce } from './introduce.hook';
 import { Home } from './layouts/home';
 import { Learning } from './layouts/learning';
 import { StudyCalendar } from './layouts/studyCalednar';
 import { AiSummary } from './layouts/aiSummary';
 import { Posting } from './layouts/posting';
-
-interface ILayout {
-  title: string;
-  Comment1: ReactNode;
-  Comment2: ReactNode;
-  Images: ReactNode;
-  ref?: LegacyRef<HTMLDivElement>;
-}
+import { Onboarding } from './layouts/onBoarding';
 
 export const Intorduce = () => {
-  const { target1, target2, target2_1, target2_2, target2_3, target2_4 } =
+  const { target2, target2_1, target2_2, target2_3, target2_4 } =
     useIntroduce();
-
-  const Layout = ({ title, Comment1, Comment2, Images }: ILayout) => (
-    <LayoutWrap>
-      <div
-        style={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '100px',
-        }}>
-        <div>
-          <p
-            style={{
-              color: '#2B73FF',
-              fontWeight: 900,
-              fontSize: '38px',
-              lineHeight: '90px',
-            }}>
-            {title}
-          </p>
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-          <LayoutComment1Wrap>{Comment1}</LayoutComment1Wrap>
-          <LayoutComment2Wrap>{Comment2}</LayoutComment2Wrap>
-        </div>
-      </div>
-      <div>{Images}</div>
-    </LayoutWrap>
-  );
 
   return (
     <IntroduceWrap>
-      <Layout
+      <Onboarding />
+      {/* <Layout
         title="Onbording"
         Comment1={
           <div>
@@ -85,7 +44,7 @@ export const Intorduce = () => {
             }}
           />
         }
-      />
+      /> */}
 
       <Home
         target2={target2}
