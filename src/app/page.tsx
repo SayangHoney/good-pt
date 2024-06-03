@@ -7,8 +7,9 @@ import { Overview } from '@/components/overview';
 import { Services } from '@/components/services';
 import { Intorduce } from '@/components/introduce';
 import styled from 'styled-components';
+import { Footer } from '@/components/footer';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <MainWrap>
       <TopComponent />
@@ -17,6 +18,7 @@ export default function Home() {
       <Overview />
       <Services />
       <Intorduce />
+      <Footer />
     </MainWrap>
   );
 }
