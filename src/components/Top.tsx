@@ -12,7 +12,7 @@ export const TopComponent = () => {
         alt="logo"
         width={70}
         height={70}
-        style={{ marginLeft: '100px', position: 'relative' }}
+        style={{ marginLeft: '100px', position: 'relative', marginTop: '10px' }}
       />
 
       <MenuWrap>
