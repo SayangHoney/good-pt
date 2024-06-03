@@ -10,6 +10,7 @@ import { Home } from './layouts/home';
 import { Learning } from './layouts/learning';
 import { StudyCalendar } from './layouts/studyCalednar';
 import { AiSummary } from './layouts/aiSummary';
+import { Posting } from './layouts/posting';
 
 interface ILayout {
   title: string;
@@ -100,24 +101,7 @@ export const Intorduce = () => {
 
       <AiSummary />
 
-      <Layout
-        title="Posting"
-        Comment1={
-          <div>
-            <p>
-              <strong>발표에 도움</strong>이 되는 팁과
-            </p>
-            <p>정보를 얻을 수 있어요.</p>
-          </div>
-        }
-        Comment2={
-          <p>
-            포스팅은 발표에 대한 다양한 정보를 제공해요. 발표에 도움이 되는
-            글부터 영상 등 여러 콘텐츠를 통해 발표에 자신감을 더해줄거에요!
-          </p>
-        }
-        Images={<></>}
-      />
+      <Posting />
     </IntroduceWrap>
   );
 };
