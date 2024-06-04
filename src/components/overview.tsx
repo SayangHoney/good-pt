@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+import Emotion1 from '@/assets/emotions/emotion1.png';
+import Emotion2 from '@/assets/emotions/emotion2.png';
+import Emotion3 from '@/assets/emotions/emotion3.png';
+import Image from 'next/image';
+
 export const Overview = () => {
   return (
     <OverviewWrap>
@@ -27,7 +32,9 @@ export const Overview = () => {
 
       <SpeechBubbleWrap>
         <SpeechBubbleRightWrap style={{ top: '600px', marginRight: '300px' }}>
-          <div>{'<대충 이모티콘>'}</div>
+          <div>
+            <Image src={Emotion1} alt="Emotion1" width={150} />
+          </div>
           <div
             style={{
               display: 'flex',
@@ -49,7 +56,9 @@ export const Overview = () => {
             <p>발표 자료 정리하고 수정하는데 시간을 단축하고 싶어요.</p>
             <p>간단하게 요약해주는 서비스가 있었으면 좋겠어요!</p>
           </div>
-          <div>{'<대충 이모티콘>'}</div>
+          <div>
+            <Image src={Emotion2} alt="Emotion2" width={150} />
+          </div>
         </SpeechBubbleLeftWrap>
 
         <SpeechBubbleRightWrap
@@ -57,7 +66,9 @@ export const Overview = () => {
             top: '1160px',
             marginRight: '300px',
           }}>
-          <div>{'<대충 이모티콘>'}</div>
+          <div>
+            <Image src={Emotion3} alt="Emotion3" width={150} />
+          </div>
           <div
             style={{
               display: 'flex',
