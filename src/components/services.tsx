@@ -1,4 +1,10 @@
-import { ReactNode } from 'react';
+import {
+  MutableRefObject,
+  ReactNode,
+  forwardRef,
+  useEffect,
+  useRef,
+} from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
@@ -6,34 +12,112 @@ import SpeechBubble from '@/assets/speech_practice.png';
 import AiData from '@/assets/ai_summary.png';
 import Chart from '@/assets/chart.png';
 
-// 바탕 사각형
-const Squire = ({
-  children,
-  className,
-  name,
-}: {
-  children: ReactNode;
-  name: string;
-  className?: string;
-}) => {
-  return (
-    <SquireAminationWrap
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}>
-      <SquireWrap className={className}>{children}</SquireWrap>
-      <strong
-        style={{ fontSize: '40px', lineHeight: '90px', color: '#2B73FF' }}>
-        {name}
-      </strong>
-    </SquireAminationWrap>
-  );
-};
-
 export const Services = () => {
-  // 4500px일 때 스크롤이벤트 동작
+  const target = useRef<any>(null);
+  const target1 = useRef<any>(null);
+  const target2 = useRef<any>(null);
+  const target3 = useRef<any>(null);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (target) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.3 }
+      );
+
+      observer.observe(target.current as Element);
+    }
+  }, [target]);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (target1) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.7 }
+      );
+
+      observer.observe(target1.current as Element);
+    }
+  }, [target1]);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (target2) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.7 }
+      );
+
+      observer.observe(target2.current as Element);
+    }
+  }, [target2]);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (target3) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.7 }
+      );
+
+      observer.observe(target3.current as Element);
+    }
+  }, [target3]);
+
+  // 바탕 사각형
+  const Squire = () => {
+    return (
+      <SquireWrap />
+      //   <strong
+      //   style={{ fontSize: '40px', lineHeight: '90px', color: '#2B73FF' }}>
+      //   {name}
+      // </strong>
+      // <SquireAminationWrap>
+      // </SquireAminationWrap>
+    );
+  };
 
   return (
     <ServicesWrap>
@@ -55,22 +139,80 @@ export const Services = () => {
       </QuestionWrap>
 
       <MethodsWrap>
-        <Squire name="발표 연습">
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            transition: 'all 1s',
+            opacity: 0,
+            transform: 'translateY(-50px)',
+            gap: '80px',
+          }}
+          ref={target}>
+          <Squire />
+          <Squire />
+          <Squire />
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            position: 'absolute',
+            gap: '80px',
+          }}>
+          <IconNameWrap ref={target1} style={{ transitionDelay: '0.2s' }}>
+            <Image src={SpeechBubble} alt="" width={318} />
+            <strong
+              style={{
+                fontSize: '40px',
+                lineHeight: '90px',
+                color: '#2B73FF',
+                transform: 'translateY(50px)',
+              }}>
+              발표 연습
+            </strong>
+          </IconNameWrap>
+          <IconNameWrap ref={target2} style={{ transitionDelay: '0.4s' }}>
+            <Image src={AiData} alt="" width={318} />
+            <strong
+              style={{
+                fontSize: '40px',
+                lineHeight: '90px',
+                color: '#2B73FF',
+                transform: 'translateY(50px)',
+              }}>
+              AI 자료 요약
+            </strong>
+          </IconNameWrap>
+          <IconNameWrap ref={target3} style={{ transitionDelay: '0.6s' }}>
+            <Image src={Chart} alt="" width={318} />
+            <strong
+              style={{
+                fontSize: '40px',
+                lineHeight: '90px',
+                color: '#2B73FF',
+                transform: 'translateY(50px)',
+              }}>
+              학습 결과 분석
+            </strong>
+          </IconNameWrap>
+        </div>
+        {/* <Squire name="발표 연습">
           <Image
             className="speech-bubble"
             src={SpeechBubble}
             alt="말풍선"
             width={318}
           />
-        </Squire>
+        </Squire> */}
 
-        <Squire name="AI 자료 요약">
+        {/* <Squire name="AI 자료 요약">
           <Image className="ai-data" src={AiData} alt="데이터" width={318} />
-        </Squire>
+        </Squire> */}
 
-        <Squire name="학습 결과 분석">
+        {/* <Squire name="학습 결과 분석">
           <Image className="chart" src={Chart} alt="차트" width={318} />
-        </Squire>
+        </Squire> */}
       </MethodsWrap>
     </ServicesWrap>
   );
@@ -123,27 +265,7 @@ const MethodsWrap = styled.div`
   flex-direction: row;
   gap: 50px;
   justify-content: center;
-`;
-
-const SquireAminationWrap = styled.div`
-  animation: fadein 2s, moveup 1s;
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes moveup {
-    from {
-      transform: translateY(100px);
-    }
-    to {
-      transform: translateY(0px);
-    }
-  }
+  position: relative;
 `;
 
 const SquireWrap = styled.div`
@@ -157,25 +279,15 @@ const SquireWrap = styled.div`
   animation-fill-mode: backwards;
 `;
 
-const IconWrap = styled.div`
-  animation: fadein1 2s, moveup1 1s;
-  animation-delay: 300ms;
-
-  @keyframes fadein1 {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes moveup1 {
-    from {
-      transform: translateY(100px);
-    }
-    to {
-      transform: translateY(0px);
-    }
-  }
+const IconNameWrap = styled.div`
+  width: 395px;
+  height: 495px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(50px);
+  transition: all 1s;
 `;
