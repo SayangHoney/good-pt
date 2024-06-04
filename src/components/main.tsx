@@ -5,22 +5,11 @@ import MainIPhone from '@/assets/main_iphone.png';
 
 import Clock from '@/assets/clock.png';
 import MegaPhone from '@/assets/megaPhone.png';
-// import MainVideo from '@/videos/mainVideo.mp4';
+import Target from '@/assets/target.png';
 
 export const MainComponent = () => {
   return (
     <MainWrap>
-      <video
-        width="100%"
-        muted
-        autoPlay
-        controls
-        preload="none"
-        // src={MainVideo}
-      >
-        <source type="video/mp4" />
-      </video>
-
       <Image
         className="icon-motion clock"
         src={Clock}
@@ -33,12 +22,12 @@ export const MainComponent = () => {
         alt="MegaPhone"
         style={{ position: 'absolute', top: 700, left: 250 }}
       />
-      {/* <Image
+      <Image
         className="icon-motion target"
         src={Target}
         alt="Target"
-        style={{ position: 'absolute', bottom: -100, right: 500 }}
-      /> */}
+        style={{ position: 'absolute', bottom: -500, right: 350 }}
+      />
 
       <div
         style={{
@@ -96,6 +85,16 @@ const MainWrap = styled.div`
       }
     }
     .clock {
+      @keyframes motion {
+        0% {
+          margin-top: 0px;
+        }
+        100% {
+          margin-top: 30px;
+        }
+      }
+    }
+    .target {
       @keyframes motion {
         0% {
           margin-top: 0px;
