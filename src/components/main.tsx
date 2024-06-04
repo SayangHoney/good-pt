@@ -69,8 +69,8 @@ const MainWrap = styled.div`
 
   .icon-motion {
     position: 'absolute';
-    top: 700;
-    left: 250;
+    /* top: 700;
+    left: 250; */
 
     animation: motion 1s linear 0s infinite alternate;
 

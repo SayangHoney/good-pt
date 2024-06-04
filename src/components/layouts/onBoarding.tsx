@@ -39,23 +39,23 @@ export const Onboarding = () => {
             fontSize: '38px',
             lineHeight: '90px',
           }}>
-          Posting
+          Onboarding
         </TitleWrap>
 
         <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
           <LayoutComment1Wrap>
             <div>
-              <p>
-                <strong>발표에 도움</strong>이 되는 팁과
-              </p>
-              <p>정보를 얻을 수 있어요.</p>
+              <p>학습에 앞서, 고민을</p>
+              <strong>분석하고 가이드를 제공해요.</strong>
             </div>
           </LayoutComment1Wrap>
           <LayoutComment2Wrap>
-            <p>
-              포스팅은 발표에 대한 다양한 정보를 제공해요. 발표에 도움이 되는
-              글부터 영상 등 여러 콘텐츠를 통해 발표에 자신감을 더해줄거에요!
-            </p>
+            <div>
+              <p>
+                온보딩을 통해 굿피티에 대해 알 수 있어요. 고민인 항목을 선택하고
+              </p>
+              <p>분석하여 적절한 학습 내용이 제공될 수 있도록 도와준답니다.</p>
+            </div>
           </LayoutComment2Wrap>
         </div>
       </DescriptionWrap>

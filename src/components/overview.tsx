@@ -133,7 +133,6 @@ const SpeechBubbleRightWrap = styled.div`
   border-radius: 113px 113px 0 113px;
   height: 226px;
   width: 948px;
-  /* position: absolute; */
 
   display: flex;
   flex-direction: row;
@@ -154,7 +153,6 @@ const SpeechBubbleLeftWrap = styled.div`
   border-radius: 113px 113px 113px 0;
   height: 226px;
   width: 948px;
-  /* position: absolute; */
 
   display: flex;
   flex-direction: row;
