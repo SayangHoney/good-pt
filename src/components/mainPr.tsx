@@ -46,7 +46,7 @@ export const MainPr = () => {
   };
 
   return (
-    <div style={{ width: '100%' }}>
+    <div style={{ width: '100%', position: 'relative' }}>
       <div
         style={{
           marginTop: '500px',
@@ -57,6 +57,7 @@ export const MainPr = () => {
           <CommentComponent />
         </EclipseWrap>
       </div>
+      <VideoWrap />
 
       <GradiantWrap className="gradiant" />
     </div>
@@ -71,6 +72,8 @@ const EclipseWrap = styled.div`
   overflow: hidden;
   height: 1694px;
 
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,4 +84,17 @@ const GradiantWrap = styled.div`
   width: 100%;
   background-image: linear-gradient(#c4c3ff 40%, black);
   position: relative;
+`;
+
+const VideoWrap = styled.div`
+  height: 768px;
+  width: 1364px;
+  background: #9d9d9d;
+  display: flex;
+  margin: 0 0 auto;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, 40%);
 `;
