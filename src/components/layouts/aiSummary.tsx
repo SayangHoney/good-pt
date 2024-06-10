@@ -71,15 +71,6 @@ export const AiSummary = () => {
         <Image src={AiSummaryImage} width={1752} alt="ai_summary" />
         <Image src={AiSummaryImage} width={1752} alt="ai_summary" />
       </ImageLoopWrap>
-
-      <div style={{ width: '100%', border: '1px solid red' }}>
-        <Image
-          src={PhoneFrame}
-          width={400}
-          alt="frame"
-          style={{ margin: '0 0 auto' }}
-        />
-      </div>
     </LayoutWrap>
   );
 };

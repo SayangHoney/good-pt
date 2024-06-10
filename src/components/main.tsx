@@ -52,7 +52,7 @@ export const MainComponent = () => {
           height: 180,
           width: 200,
           top: 1800,
-          right: 350,
+          right: 250,
           zIndex: 1,
         }}
       />
