@@ -11,7 +11,7 @@ import ChatBubble from '@/assets/chat_bubble.png';
 
 export const MainComponent = () => {
   return (
-    <MainWrap>
+    <MainWrap id="home">
       <Image
         className="icon-motion"
         src={Clock}

@@ -102,6 +102,7 @@ export const MainPr = () => {
   return (
     <div style={{ width: '100%', position: 'relative' }}>
       <div
+        id="video"
         style={{
           marginTop: '500px',
           height: '847px',

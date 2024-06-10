@@ -180,7 +180,7 @@ export const Services = () => {
   };
 
   return (
-    <ServicesWrap>
+    <ServicesWrap id="services" style={{ transition: '4s' }}>
       <QuestionWrap>
         <div
           className="title"
@@ -279,6 +279,9 @@ const ServicesWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 200px;
+  #services {
+    scroll-behavior: smooth;
+  }
 `;
 
 const QuestionWrap = styled.div`

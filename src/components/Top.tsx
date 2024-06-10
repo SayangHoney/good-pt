@@ -16,9 +16,17 @@ export const TopComponent = () => {
       />
 
       <MenuWrap>
-        <div className="menu-item">Home</div>
-        <div className="menu-item">Video</div>
-        <div className="menu-item">Services</div>
+        <div className="menu-item">
+          <a href={'#home'}>Home</a>
+        </div>
+        <div className="menu-item">
+          <a href="#video">Video</a>
+        </div>
+        <div className="menu-item">
+          <a style={{ scrollBehavior: 'smooth' }} href="#services">
+            Services
+          </a>
+        </div>
       </MenuWrap>
     </TopWrap>
   );
@@ -43,11 +51,15 @@ const MenuWrap = styled.div`
   .menu-item {
     height: 50px;
     font-size: 20px;
-    color: white;
     padding: 20px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: white;
+
+    a {
+      color: white;
+    }
   }
 `;
