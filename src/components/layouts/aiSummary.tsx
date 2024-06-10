@@ -2,18 +2,23 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import AiSummaryImage from '@/assets/aiSummary/ai_summary_group.png';
+import PhoneFrame from '@/assets/aiSummary/phone_frame.png';
+
 import { useEffect, useRef, useState } from 'react';
 
 export const AiSummary = () => {
-  const ref = useRef<any>(null);
+  const ref = useRef<HTMLImageElement>(null);
+  const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
     let observer: IntersectionObserver;
 
+    console.log('ref style', ref.current?.style);
     if (ref) {
       observer = new IntersectionObserver(
         ([e]) => {
           const target = e.target as HTMLElement;
+          console.log(target);
           if (e.isIntersecting) {
             target.style.opacity = '1';
             // target.style.transform = 'translateY(0)';
@@ -61,11 +66,20 @@ export const AiSummary = () => {
       </DescriptionWrap>
 
       {/* images */}
-      <ImageLoopWrap ref={ref}>
-        <Image src={AiSummaryImage} width={1752} alt="ai_summary" />
+      <ImageLoopWrap>
+        <Image ref={ref} src={AiSummaryImage} width={1752} alt="ai_summary" />
         <Image src={AiSummaryImage} width={1752} alt="ai_summary" />
         <Image src={AiSummaryImage} width={1752} alt="ai_summary" />
       </ImageLoopWrap>
+
+      <div style={{ width: '100%', border: '1px solid red' }}>
+        <Image
+          src={PhoneFrame}
+          width={400}
+          alt="frame"
+          style={{ margin: '0 0 auto' }}
+        />
+      </div>
     </LayoutWrap>
   );
 };
