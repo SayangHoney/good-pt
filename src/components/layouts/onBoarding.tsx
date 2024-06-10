@@ -5,7 +5,10 @@ import styled from 'styled-components';
 import OnboardingImg from '@/assets/onbording/onbording_group.png';
 
 export const Onboarding = () => {
+  const titleRef = useRef<any>(null);
   const ref = useRef<any>(null);
+  const commentRef1 = useRef<any>(null);
+  const commentRef2 = useRef<any>(null);
 
   useEffect(() => {
     let observer: IntersectionObserver;
@@ -28,11 +31,75 @@ export const Onboarding = () => {
       observer.observe(ref.current as Element);
     }
   }, [ref]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (titleRef) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(titleRef.current as Element);
+    }
+  }, [titleRef]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef1) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(commentRef1.current as Element);
+    }
+  }, [commentRef1]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef2) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(commentRef2.current as Element);
+    }
+  }, [commentRef2]);
 
   return (
     <LayoutWrap>
       <DescriptionWrap>
         <TitleWrap
+          ref={titleRef}
           style={{
             color: '#2B73FF',
             fontWeight: 900,
@@ -43,13 +110,13 @@ export const Onboarding = () => {
         </TitleWrap>
 
         <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-          <LayoutComment1Wrap>
+          <LayoutComment1Wrap ref={commentRef1}>
             <div>
               <p>학습에 앞서, 고민을</p>
               <strong>분석하고 가이드를 제공해요.</strong>
             </div>
           </LayoutComment1Wrap>
-          <LayoutComment2Wrap>
+          <LayoutComment2Wrap ref={commentRef2}>
             <div>
               <p>
                 온보딩을 통해 굿피티에 대해 알 수 있어요. 고민인 항목을 선택하고
@@ -91,6 +158,8 @@ const TitleWrap = styled.p`
   font-weight: 900;
   font-size: 38px;
   line-height: 90px;
+  opacity: 0;
+  transition: 1s;
 `;
 
 const DescriptionWrap = styled.div`
@@ -108,6 +177,9 @@ const LayoutComment1Wrap = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transition: 1s;
+  transition-delay: 300ms;
 `;
 
 const LayoutComment2Wrap = styled.div`
@@ -117,6 +189,9 @@ const LayoutComment2Wrap = styled.div`
   font-weight: lighter;
   font-size: 26px;
   line-height: 34px;
+  opacity: 0;
+  transition: 1s;
+  transition-delay: 300ms;
 `;
 
 const ContentWrap = styled.div`

@@ -14,6 +14,10 @@ export const StudyCalendar = () => {
   const ref3 = useRef<any>(null);
   const ref4 = useRef<any>(null);
 
+  const titleRef = useRef<any>(null);
+  const commentRef1 = useRef<any>(null);
+  const commentRef2 = useRef<any>(null);
+
   useEffect(() => {
     let observer: IntersectionObserver;
 
@@ -98,21 +102,85 @@ export const StudyCalendar = () => {
     }
   }, [ref4]);
 
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (titleRef) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(titleRef.current as Element);
+    }
+  }, [titleRef]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef1) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(commentRef1.current as Element);
+    }
+  }, [commentRef1]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef2) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(commentRef2.current as Element);
+    }
+  }, [commentRef2]);
+
   return (
     <LayoutWrap>
       <DescriptionWrap>
         <TitleWrap
+          ref={titleRef}
           style={{
             color: '#2B73FF',
             fontWeight: 900,
             fontSize: '38px',
             lineHeight: '90px',
+            opacity: 0,
+            transition: '1s',
           }}>
           Study Calendar
         </TitleWrap>
 
         <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-          <LayoutComment1Wrap>
+          <LayoutComment1Wrap ref={commentRef1}>
             <div>
               <p>
                 <strong>학습 일정</strong>을 기록하고
@@ -122,7 +190,7 @@ export const StudyCalendar = () => {
               </p>
             </div>
           </LayoutComment1Wrap>
-          <LayoutComment2Wrap>
+          <LayoutComment2Wrap ref={commentRef2}>
             <p>
               캘린더를 통해 오늘 학습할 내용을 파악하고 이전에 했던 학습 기록을
               찾아볼 수 있어요.
@@ -270,6 +338,9 @@ const LayoutComment1Wrap = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transition: 1s;
+  transition-delay: 300ms;
 `;
 
 const LayoutComment2Wrap = styled.div`
@@ -279,6 +350,9 @@ const LayoutComment2Wrap = styled.div`
   font-weight: lighter;
   font-size: 26px;
   line-height: 34px;
+  opacity: 0;
+  transition: 1s;
+  transition-delay: 300ms;
 `;
 
 const Description1Wrap = styled.div`

@@ -197,22 +197,6 @@ export const Services = () => {
             </strong>
           </IconNameWrap>
         </div>
-        {/* <Squire name="발표 연습">
-          <Image
-            className="speech-bubble"
-            src={SpeechBubble}
-            alt="말풍선"
-            width={318}
-          />
-        </Squire> */}
-
-        {/* <Squire name="AI 자료 요약">
-          <Image className="ai-data" src={AiData} alt="데이터" width={318} />
-        </Squire> */}
-
-        {/* <Squire name="학습 결과 분석">
-          <Image className="chart" src={Chart} alt="차트" width={318} />
-        </Squire> */}
       </MethodsWrap>
     </ServicesWrap>
   );

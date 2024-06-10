@@ -13,6 +13,10 @@ export const Posting = () => {
   const ref3 = useRef<any>(null);
   const ref4 = useRef<any>(null);
 
+  const titleRef = useRef<any>(null);
+  const commentRef1 = useRef<any>(null);
+  const commentRef2 = useRef<any>(null);
+
   useEffect(() => {
     let observer: IntersectionObserver;
     if (ref1) {
@@ -93,21 +97,82 @@ export const Posting = () => {
     }
   }, [ref4]);
 
+  useEffect(() => {
+    let observer: IntersectionObserver;
+    if (titleRef) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(titleRef.current as Element);
+    }
+  }, [titleRef]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+    if (commentRef1) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(commentRef1.current as Element);
+    }
+  }, [commentRef1]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+    if (commentRef2) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(commentRef2.current as Element);
+    }
+  }, [commentRef2]);
+
   return (
     <LayoutWrap>
       <DescriptionWrap>
         <TitleWrap
+          ref={titleRef}
           style={{
             color: '#2B73FF',
             fontWeight: 900,
             fontSize: '38px',
             lineHeight: '90px',
+            opacity: 0,
+            transition: '1s',
           }}>
           Posting
         </TitleWrap>
 
         <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-          <LayoutComment1Wrap>
+          <LayoutComment1Wrap ref={commentRef1}>
             <div>
               <p>
                 <strong>발표에 도움</strong> 이 되는 팁과
@@ -115,7 +180,7 @@ export const Posting = () => {
               <p>정보를 얻을 수 있어요.</p>
             </div>
           </LayoutComment1Wrap>
-          <LayoutComment2Wrap>
+          <LayoutComment2Wrap ref={commentRef2}>
             <div>
               <p>
                 포스팅은 발표에 대한 다양한 정보를 제공해요. 발표에 도움이 되는
@@ -221,6 +286,9 @@ const LayoutComment1Wrap = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
+  transition: 1s;
+  transition-delay: 300ms;
+  opacity: 0;
 `;
 
 const LayoutComment2Wrap = styled.div`
@@ -230,6 +298,9 @@ const LayoutComment2Wrap = styled.div`
   font-weight: lighter;
   font-size: 26px;
   line-height: 34px;
+  transition: 1s;
+  transition-delay: 300ms;
+  opacity: 0;
 `;
 
 const ContentWrap = styled.div`
