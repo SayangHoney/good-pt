@@ -6,27 +6,55 @@ import MainIPhone from '@/assets/main_iphone.png';
 import Clock from '@/assets/clock.png';
 import MegaPhone from '@/assets/megaPhone.png';
 import Target from '@/assets/target.png';
+import ThunderBubble from '@/assets/thunder_bubble.png';
+import ChatBubble from '@/assets/chat_bubble.png';
 
 export const MainComponent = () => {
   return (
     <MainWrap>
       <Image
-        className="icon-motion clock"
+        className="icon-motion"
         src={Clock}
         alt="Clock"
         style={{ position: 'absolute', top: 15, right: 250 }}
       />
       <Image
-        className="icon-motion mega-phone"
+        className="icon-motion"
         src={MegaPhone}
         alt="MegaPhone"
         style={{ position: 'absolute', top: 700, left: 250 }}
       />
       <Image
-        className="icon-motion target"
+        className="icon-motion"
         src={Target}
         alt="Target"
-        style={{ position: 'absolute', bottom: -500, right: 350 }}
+        style={{ position: 'absolute', top: 1200, right: 350, zIndex: 1 }}
+      />
+      <Image
+        className="icon-motion"
+        src={ChatBubble}
+        alt="Chat Bubble"
+        style={{
+          position: 'absolute',
+          height: 230,
+          width: 215,
+          top: 1500,
+          left: 250,
+          zIndex: 1,
+        }}
+      />
+      <Image
+        className="icon-motion"
+        src={ThunderBubble}
+        alt="Thunder Bubble"
+        style={{
+          position: 'absolute',
+          height: 180,
+          width: 200,
+          top: 1800,
+          right: 350,
+          zIndex: 1,
+        }}
       />
 
       <div
@@ -68,40 +96,15 @@ const MainWrap = styled.div`
   }
 
   .icon-motion {
-    position: 'absolute';
-    /* top: 700;
-    left: 250; */
+    position: absolute;
+    animation: motion 1s ease-in-out 0s infinite alternate;
 
-    animation: motion 1s linear 0s infinite alternate;
-
-    .mega-phone {
-      @keyframes motion {
-        0% {
-          margin-top: 30px;
-        }
-        100% {
-          margin-top: 0px;
-        }
+    @keyframes motion {
+      0% {
+        margin-top: 30px;
       }
-    }
-    .clock {
-      @keyframes motion {
-        0% {
-          margin-top: 0px;
-        }
-        100% {
-          margin-top: 30px;
-        }
-      }
-    }
-    .target {
-      @keyframes motion {
-        0% {
-          margin-top: 0px;
-        }
-        100% {
-          margin-top: 30px;
-        }
+      100% {
+        margin-top: 0px;
       }
     }
   }
