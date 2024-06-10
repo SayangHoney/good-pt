@@ -143,7 +143,7 @@ export const MainComponent = () => {
             alignItems: 'center',
             opacity: 0,
             transition: '1s',
-            transitionDelay: '300ms',
+            transitionDelay: '800ms',
           }}>
           <p className="text1 ">굿피티</p>
           <p className="text2">와 함께,</p>
@@ -158,7 +158,7 @@ export const MainComponent = () => {
         />
         <div
           ref={commentRef2}
-          style={{ opacity: 0, transition: '1s', transitionDelay: '500ms' }}>
+          style={{ opacity: 0, transition: '1s', transitionDelay: '1s' }}>
           <p className="text2">발표 능력 UP!</p>
         </div>
       </div>
