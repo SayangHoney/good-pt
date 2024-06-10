@@ -14,6 +14,7 @@
     "next-video": "^1.0.7",
     "react": "^18",
     "react-dom": "^18",
+    "react-youtube": "^10.1.0",
     "sharp": "^0.33.4",
     "styled-components": "^6.1.11"
   },

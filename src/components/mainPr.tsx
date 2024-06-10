@@ -1,3 +1,4 @@
+import YouTube from 'react-youtube';
 import styled from 'styled-components';
 
 export const MainPr = () => {
@@ -57,7 +58,10 @@ export const MainPr = () => {
           <CommentComponent />
         </EclipseWrap>
       </div>
-      <VideoWrap />
+      <VideoWrap
+        videoId="QqY8uANoOcw"
+        opts={{ height: '100%', width: '100%' }}
+      />
 
       <GradiantWrap className="gradiant" />
     </div>
@@ -65,12 +69,12 @@ export const MainPr = () => {
 };
 
 const EclipseWrap = styled.div`
-  width: 100%;
+  width: 100vw;
+  height: 1694px;
   border-radius: 100%;
   background-image: linear-gradient(#c4c3ff 50%, black);
   background-color: #c4c3ff;
   overflow: hidden;
-  height: 1694px;
 
   position: relative;
 
@@ -86,7 +90,7 @@ const GradiantWrap = styled.div`
   position: relative;
 `;
 
-const VideoWrap = styled.div`
+const VideoWrap = styled(YouTube)`
   height: 768px;
   width: 1364px;
   background: #9d9d9d;
