@@ -15,12 +15,10 @@ export const AiSummary = () => {
   useEffect(() => {
     let observer: IntersectionObserver;
 
-    console.log('ref style', ref.current?.style);
     if (ref) {
       observer = new IntersectionObserver(
         ([e]) => {
           const target = e.target as HTMLElement;
-          console.log(target);
           if (e.isIntersecting) {
             target.style.opacity = '1';
             // target.style.transform = 'translateY(0)';
@@ -37,12 +35,10 @@ export const AiSummary = () => {
   useEffect(() => {
     let observer: IntersectionObserver;
 
-    console.log('ref style', ref.current?.style);
     if (titleRef) {
       observer = new IntersectionObserver(
         ([e]) => {
           const target = e.target as HTMLElement;
-          console.log(target);
           if (e.isIntersecting) {
             target.style.opacity = '1';
             // target.style.transform = 'translateY(0)';
@@ -59,12 +55,10 @@ export const AiSummary = () => {
   useEffect(() => {
     let observer: IntersectionObserver;
 
-    console.log('ref style', ref.current?.style);
     if (commentRef1) {
       observer = new IntersectionObserver(
         ([e]) => {
           const target = e.target as HTMLElement;
-          console.log(target);
           if (e.isIntersecting) {
             target.style.opacity = '1';
             // target.style.transform = 'translateY(0)';
@@ -81,12 +75,10 @@ export const AiSummary = () => {
   useEffect(() => {
     let observer: IntersectionObserver;
 
-    console.log('ref style', ref.current?.style);
     if (commentRef2) {
       observer = new IntersectionObserver(
         ([e]) => {
           const target = e.target as HTMLElement;
-          console.log(target);
           if (e.isIntersecting) {
             target.style.opacity = '1';
             // target.style.transform = 'translateY(0)';
