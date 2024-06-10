@@ -30,7 +30,7 @@ export const MainComponent = () => {
             target.style.transform = 'translateY(100px)';
           }
         },
-        { threshold: 1 }
+        { threshold: 0.8 }
       );
 
       observer.observe(imageRef.current as Element);
@@ -51,7 +51,7 @@ export const MainComponent = () => {
             target.style.transform = 'translateY(100px)';
           }
         },
-        { threshold: 1 }
+        { threshold: 0.8 }
       );
 
       observer.observe(commentRef1.current as Element);
@@ -72,7 +72,7 @@ export const MainComponent = () => {
             target.style.transform = 'translateY(100px)';
           }
         },
-        { threshold: 1 }
+        { threshold: 0.8 }
       );
 
       observer.observe(commentRef2.current as Element);

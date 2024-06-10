@@ -59,6 +59,8 @@ const FloatingBtnWrap = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0.8;
+
   &:hover {
     cursor: pointer;
   }
