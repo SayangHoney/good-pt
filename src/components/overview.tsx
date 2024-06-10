@@ -4,18 +4,161 @@ import Emotion1 from '@/assets/emotions/emotion1.png';
 import Emotion2 from '@/assets/emotions/emotion2.png';
 import Emotion3 from '@/assets/emotions/emotion3.png';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 
 export const Overview = () => {
+  const titleRef = useRef<any>(null);
+  const commentRef1 = useRef<any>(null);
+  const commentRef2 = useRef<any>(null);
+
+  const bubbleRef1 = useRef<any>(null);
+  const bubbleRef2 = useRef<any>(null);
+  const bubbleRef3 = useRef<any>(null);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (titleRef) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(titleRef.current as Element);
+    }
+  }, [titleRef]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef1) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.3 }
+      );
+      observer.observe(commentRef1.current as Element);
+    }
+  }, [commentRef1]);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef2) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(commentRef2.current as Element);
+    }
+  }, [commentRef2]);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (bubbleRef1) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(bubbleRef1.current as Element);
+    }
+  }, [bubbleRef1]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (bubbleRef2) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(bubbleRef2.current as Element);
+    }
+  }, [bubbleRef2]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (bubbleRef3) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(50px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(bubbleRef3.current as Element);
+    }
+  }, [bubbleRef3]);
+
   return (
     <OverviewWrap>
-      <span className="title">Overview</span>
-      <div className="comment_1">
+      <span
+        className="title"
+        ref={titleRef}
+        style={{ opacity: 0, transition: '1s' }}>
+        Overview
+      </span>
+      <div
+        className="comment_1"
+        ref={commentRef1}
+        style={{ opacity: 0, transition: '1s', transitionDelay: '300ms' }}>
         <span>나날이 늘어나는</span>
         <span>
           <strong>발표의 중요성</strong>
         </span>
       </div>
-      <div className="comment_2">
+      <div
+        className="comment_2"
+        ref={commentRef2}
+        style={{ opacity: 0, transition: '1s', transitionDelay: '300ms' }}>
         <span>
           서류 봉투에서 제품을 꺼내 맥북 에어의 가벼움과 휴대성을 새롭게
           보여주었던 스티브잡스.
@@ -31,7 +174,9 @@ export const Overview = () => {
       </div>
 
       <SpeechBubbleWrap>
-        <SpeechBubbleRightWrap style={{ top: '600px', marginRight: '300px' }}>
+        <SpeechBubbleRightWrap
+          style={{ top: '600px', marginRight: '300px' }}
+          ref={bubbleRef1}>
           <div>
             <Image src={Emotion1} alt="Emotion1" width={150} />
           </div>
@@ -46,7 +191,9 @@ export const Overview = () => {
           </div>
         </SpeechBubbleRightWrap>
 
-        <SpeechBubbleLeftWrap style={{ top: '880px', marginLeft: '300px' }}>
+        <SpeechBubbleLeftWrap
+          style={{ top: '880px', marginLeft: '300px' }}
+          ref={bubbleRef2}>
           <div
             style={{
               display: 'flex',
@@ -62,6 +209,7 @@ export const Overview = () => {
         </SpeechBubbleLeftWrap>
 
         <SpeechBubbleRightWrap
+          ref={bubbleRef3}
           style={{
             top: '1160px',
             marginRight: '300px',
@@ -139,6 +287,8 @@ const SpeechBubbleRightWrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
+  opacity: 0;
+  transition: 1s;
 
   p {
     font-size: 28px;
@@ -159,6 +309,8 @@ const SpeechBubbleLeftWrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
+  opacity: 0;
+  transition: 1s;
 
   p {
     font-size: 28px;

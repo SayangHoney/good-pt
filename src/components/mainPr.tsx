@@ -1,7 +1,54 @@
+import { useEffect, useRef } from 'react';
 import YouTube from 'react-youtube';
 import styled from 'styled-components';
 
 export const MainPr = () => {
+  const mainRef = useRef<any>(null);
+  const subRef = useRef<any>(null);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (mainRef) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(mainRef.current as Element);
+    }
+  }, [mainRef]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (subRef) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(subRef.current as Element);
+    }
+  }, [subRef]);
+
   const CommentComponent = () => {
     return (
       <div
@@ -11,12 +58,15 @@ export const MainPr = () => {
           gap: '80px',
         }}>
         <div
+          ref={mainRef}
           style={{
             position: 'relative',
             top: '250px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            opacity: 0,
+            transition: '1s',
           }}>
           <div style={{ fontSize: '64px', lineHeight: '90px' }}>
             굿피티와 함께,
@@ -28,12 +78,15 @@ export const MainPr = () => {
         </div>
 
         <div
+          ref={subRef}
           style={{
             position: 'relative',
             top: '250px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            opacity: 0,
+            transition: '1s',
           }}>
           <div style={{ fontSize: '32px', lineHeight: '48px' }}>
             발음 교정, 발성 연습, 말하기 속도 조절까지

@@ -18,6 +18,10 @@ export const Services = () => {
   const target2 = useRef<any>(null);
   const target3 = useRef<any>(null);
 
+  const mainQuestionRef = useRef<any>(null);
+  const commentRef1 = useRef<any>(null);
+  const commentRef2 = useRef<any>(null);
+
   useEffect(() => {
     let observer: IntersectionObserver;
 
@@ -106,34 +110,99 @@ export const Services = () => {
     }
   }, [target3]);
 
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (mainQuestionRef) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(mainQuestionRef.current as Element);
+    }
+  }, [mainQuestionRef]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef1) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(commentRef1.current as Element);
+    }
+  }, [commentRef1]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef2) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(commentRef2.current as Element);
+    }
+  }, [commentRef2]);
+
   // 바탕 사각형
   const Squire = () => {
-    return (
-      <SquireWrap />
-      //   <strong
-      //   style={{ fontSize: '40px', lineHeight: '90px', color: '#2B73FF' }}>
-      //   {name}
-      // </strong>
-      // <SquireAminationWrap>
-      // </SquireAminationWrap>
-    );
+    return <SquireWrap />;
   };
 
   return (
     <ServicesWrap>
       <QuestionWrap>
-        <div className="title">
+        <div
+          className="title"
+          ref={mainQuestionRef}
+          style={{ opacity: 0, transition: '1s' }}>
           <p className="q">어떤 서비스가 있을까요?</p>
         </div>
 
-        <div className="comment1">
+        <div
+          className="comment1"
+          ref={commentRef1}
+          style={{ opacity: 0, transition: '1s' }}>
           <p>
             <strong>실질적인 발표능력</strong>을 향상
           </p>
           <p>시켜줄 학습을 소개할게요!</p>
         </div>
 
-        <div className="comment2">
+        <div
+          className="comment2"
+          ref={commentRef2}
+          style={{ opacity: 0, transition: '1s' }}>
           <p>굿피티는 세 가지의 주요 서비스를 제공합니다.</p>
         </div>
       </QuestionWrap>

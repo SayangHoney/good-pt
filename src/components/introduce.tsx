@@ -15,36 +15,6 @@ export const Intorduce = () => {
   return (
     <IntroduceWrap>
       <Onboarding />
-      {/* <Layout
-        title="Onbording"
-        Comment1={
-          <div>
-            <p>학습에 앞서, 고민을</p>
-            <strong>분석하고 가이드를 제공해요.</strong>
-          </div>
-        }
-        Comment2={
-          <div>
-            <p>
-              온보딩을 통해 굿피티에 대해 알 수 있어요. 고민인 항목을 선택하고
-            </p>
-            <p>분석하여 적절한 학습 내용이 제공될 수 있도록 도와준답니다.</p>
-          </div>
-        }
-        Images={
-          <Image
-            ref={target1}
-            src={Onbording}
-            alt="onbording1"
-            style={{
-              width: '1386px',
-              opacity: 0,
-              transform: 'translateY(100px)',
-              transition: 'all 1s',
-            }}
-          />
-        }
-      /> */}
 
       <Home
         target2={target2}
