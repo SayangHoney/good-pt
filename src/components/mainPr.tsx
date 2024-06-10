@@ -112,7 +112,7 @@ export const MainPr = () => {
         </EclipseWrap>
       </div>
       <VideoWrap
-        videoId="QqY8uANoOcw"
+        videoId="9WYE8Pci45k"
         opts={{ height: '100%', width: '100%' }}
       />
 
