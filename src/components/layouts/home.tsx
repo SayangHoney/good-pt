@@ -16,112 +16,115 @@ interface IProps {
   target2_4: MutableRefObject<any>;
 }
 
-export const Home = forwardRef(
-  ({ target2, target2_1, target2_2, target2_3, target2_4 }: IProps) => {
-    return (
-      <LayoutWrap>
-        <DescriptionWrap>
-          <TitleWrap
-            style={{
-              color: '#2B73FF',
-              fontWeight: 900,
-              fontSize: '38px',
-              lineHeight: '90px',
-            }}>
-            Home
-          </TitleWrap>
+export const Home = ({
+  target2,
+  target2_1,
+  target2_2,
+  target2_3,
+  target2_4,
+}: IProps) => {
+  return (
+    <LayoutWrap>
+      <DescriptionWrap>
+        <TitleWrap
+          style={{
+            color: '#2B73FF',
+            fontWeight: 900,
+            fontSize: '38px',
+            lineHeight: '90px',
+          }}>
+          Home
+        </TitleWrap>
 
-          <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-            <LayoutComment1Wrap>
-              <div>
-                <p>
-                  <strong>향상된 발표능력</strong>을
-                </p>
-                <p>홈에서 한번에 확인해요.</p>
-              </div>
-            </LayoutComment1Wrap>
-            <LayoutComment2Wrap>
+        <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
+          <LayoutComment1Wrap>
+            <div>
               <p>
-                발표 연습을 통해 학습한 결과를 바탕으로 성장 그래프를
-                보여줄게요! 나날이 늘어나는 발표 실력을 보며 향상된 발표 능력을
-                확인해보세요
+                <strong>향상된 발표능력</strong>을
               </p>
-            </LayoutComment2Wrap>
-          </div>
-        </DescriptionWrap>
+              <p>홈에서 한번에 확인해요.</p>
+            </div>
+          </LayoutComment1Wrap>
+          <LayoutComment2Wrap>
+            <p>
+              발표 연습을 통해 학습한 결과를 바탕으로 성장 그래프를 보여줄게요!
+              나날이 늘어나는 발표 실력을 보며 향상된 발표 능력을 확인해보세요
+            </p>
+          </LayoutComment2Wrap>
+        </div>
+      </DescriptionWrap>
 
-        {/* contents */}
-        <ContentsWrap>
-          <DescriptionLeftWrap>
-            <Image
-              ref={target2_2}
-              src={Description2}
-              alt="설명_l1"
-              style={{
-                position: 'relative',
-                top: '500px',
-                right: '-50px',
-                transition: 'all 1s',
-                transform: 'translateY(-50px)',
-                opacity: 0,
-              }}
-            />
-            <Image
-              ref={target2_3}
-              src={Description3}
-              alt="설명_l2"
-              style={{
-                position: 'relative',
-                top: '900px',
-                right: '-60px',
-                transition: 'all 1s',
-                transform: 'translateY(-50px)',
-                opacity: 0,
-              }}
-            />
-          </DescriptionLeftWrap>
+      {/* contents */}
+      <ContentsWrap>
+        <DescriptionLeftWrap>
           <Image
-            src={HomePicture}
-            alt="home"
-            width={526}
-            ref={target2}
+            ref={target2_2}
+            src={Description2}
+            alt="설명_l1"
             style={{
+              position: 'relative',
+              top: '500px',
+              right: '-50px',
               transition: 'all 1s',
+              transform: 'translateY(-50px)',
+              opacity: 0,
             }}
           />
-          <DescriptionRightWrap>
-            <Image
-              ref={target2_1}
-              src={Description1}
-              alt="설명_r1"
-              style={{
-                position: 'relative',
-                top: '300px',
-                left: '-30px',
-                transition: 'all 1s',
-                transform: 'translateY(-50px)',
-                opacity: 0,
-              }}
-            />
-            <Image
-              ref={target2_4}
-              src={Description4}
-              alt="설명_r2"
-              style={{
-                position: 'relative',
-                top: '1300px',
-                left: '-50px',
-                transition: 'all 1s',
-                transform: 'translateY(-50px)',
-                opacity: 0,
-              }}
-            />
-          </DescriptionRightWrap>
-        </ContentsWrap>
-      </LayoutWrap>
-    );
-  }
-);
+          <Image
+            ref={target2_3}
+            src={Description3}
+            alt="설명_l2"
+            style={{
+              position: 'relative',
+              top: '900px',
+              right: '-60px',
+              transition: 'all 1s',
+              transform: 'translateY(-50px)',
+              opacity: 0,
+            }}
+          />
+        </DescriptionLeftWrap>
+        <Image
+          src={HomePicture}
+          alt="home"
+          width={526}
+          ref={target2}
+          style={{
+            transition: 'all 1s',
+          }}
+        />
+        <DescriptionRightWrap>
+          <Image
+            ref={target2_1}
+            src={Description1}
+            alt="설명_r1"
+            style={{
+              position: 'relative',
+              top: '300px',
+              left: '-30px',
+              transition: 'all 1s',
+              transform: 'translateY(-50px)',
+              opacity: 0,
+            }}
+          />
+          <Image
+            ref={target2_4}
+            src={Description4}
+            alt="설명_r2"
+            style={{
+              position: 'relative',
+              top: '1300px',
+              left: '-50px',
+              transition: 'all 1s',
+              transform: 'translateY(-50px)',
+              opacity: 0,
+            }}
+          />
+        </DescriptionRightWrap>
+      </ContentsWrap>
+    </LayoutWrap>
+  );
+};
 
 const LayoutWrap = styled.div`
   display: flex;
