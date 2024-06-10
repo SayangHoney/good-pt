@@ -8,8 +8,77 @@ import MegaPhone from '@/assets/megaPhone.png';
 import Target from '@/assets/target.png';
 import ThunderBubble from '@/assets/thunder_bubble.png';
 import ChatBubble from '@/assets/chat_bubble.png';
+import { useEffect, useRef } from 'react';
 
 export const MainComponent = () => {
+  const commentRef1 = useRef<any>(null);
+  const commentRef2 = useRef<any>(null);
+  const imageRef = useRef<any>(null);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (imageRef) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(imageRef.current as Element);
+    }
+  }, [imageRef]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef1) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(commentRef1.current as Element);
+    }
+  }, [commentRef1]);
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    if (commentRef2) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          const target = e.target as HTMLElement;
+          if (e.isIntersecting) {
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(50px)';
+          } else {
+            target.style.opacity = '0';
+            target.style.transform = 'translateY(100px)';
+          }
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(commentRef2.current as Element);
+    }
+  }, [commentRef2]);
+
   return (
     <MainWrap id="home">
       <Image
@@ -66,17 +135,32 @@ export const MainComponent = () => {
           gap: '20px',
         }}>
         <div
+          ref={commentRef1}
           style={{
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
+            opacity: 0,
+            transition: '1s',
+            transitionDelay: '300ms',
           }}>
           <p className="text1 ">굿피티</p>
           <p className="text2">와 함께,</p>
         </div>
-        <Image src={MainIPhone} alt="iphone" width={396} height={802} />
-        <p className="text2 ">발표 능력 UP!</p>
+        <Image
+          ref={imageRef}
+          style={{ opacity: 0, transition: '1s' }}
+          src={MainIPhone}
+          alt="iphone"
+          width={396}
+          height={802}
+        />
+        <div
+          ref={commentRef2}
+          style={{ opacity: 0, transition: '1s', transitionDelay: '500ms' }}>
+          <p className="text2">발표 능력 UP!</p>
+        </div>
       </div>
     </MainWrap>
   );

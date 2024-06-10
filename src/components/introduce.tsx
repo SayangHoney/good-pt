@@ -42,29 +42,3 @@ const IntroduceWrap = styled.div`
   flex-direction: column;
   margin: 0 0 auto;
 `;
-
-const LayoutWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 230px;
-`;
-
-const LayoutComment1Wrap = styled.div`
-  font-weight: lighter;
-  flex: 0 0 50%;
-  font-size: 60px;
-  line-height: 75px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-`;
-
-const LayoutComment2Wrap = styled.div`
-  width: 100%;
-  color: white;
-  flex: 1 1 auto;
-  font-weight: lighter;
-  font-size: 26px;
-  line-height: 34px;
-`;

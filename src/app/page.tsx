@@ -12,6 +12,12 @@ import { Footer } from '@/components/footer';
 export default function HomePage() {
   return (
     <MainWrap>
+      <FloatingBtnWrap
+        onClick={() => {
+          window.location.href = '#top';
+        }}>
+        Top
+      </FloatingBtnWrap>
       <TopComponent />
       <MainComponent />
       <MainPr />
@@ -32,6 +38,28 @@ const MainWrap = styled.div`
   height: 100%;
   width: 100%;
   overflow: hidden;
+  position: relative;
 
   background: black;
+`;
+
+const FloatingBtnWrap = styled.button`
+  background: #2b73ff;
+  border: 4px ridge #76a4ff;
+  position: fixed;
+  color: #213696;
+  bottom: 50px;
+  right: 50px;
+  z-index: 100;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  font-size: 24px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
 `;

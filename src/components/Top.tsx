@@ -6,7 +6,7 @@ import LogoImage from '@/assets/logo.png';
 
 export const TopComponent = () => {
   return (
-    <TopWrap>
+    <TopWrap id="top">
       <Image
         src={LogoImage}
         alt="logo"
