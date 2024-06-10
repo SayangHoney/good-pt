@@ -45,9 +45,9 @@ const MainWrap = styled.div`
 
 const FloatingBtnWrap = styled.button`
   background: #2b73ff;
-  border: 4px ridge #76a4ff;
+  border: #76a4ff;
+  box-shadow: 0 3px 9px black, inset 0 0 9px white;
   position: fixed;
-  color: #213696;
   bottom: 50px;
   right: 50px;
   z-index: 100;
