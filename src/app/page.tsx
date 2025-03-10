@@ -21,7 +21,7 @@ export default function HomePage() {
         onClick={() => {
           window.location.href = '#top';
         }}>
-        Top
+        ▲ Top
       </FloatingBtnWrap>
 
       <MainComponent />
