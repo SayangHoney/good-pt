@@ -89,7 +89,7 @@ export const MainPr = () => {
         </EclipseWrap>
       </div>
 
-      <VideoWrap style={{ border: '1px solid violet' }}>
+      <VideoWrap>
         <TestWrap
           videoId="9WYE8Pci45k"
           opts={{ height: '100%', width: '100%' }}
@@ -192,7 +192,6 @@ const VideoWrap = styled.div`
   transform: translate(-50%, 40%);
 
   @media screen and (max-width: 1920px) {
-    border: 4px solid blue;
     width: 818px;
     height: 460px;
     left: 50%;
