@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import YouTube from 'react-youtube';
 import styled from 'styled-components';
 
-export const MainPr = () => {
+const CommentComponent = () => {
   const mainRef = useRef<any>(null);
   const subRef = useRef<any>(null);
 
@@ -28,7 +28,6 @@ export const MainPr = () => {
       observer.observe(mainRef.current as Element);
     }
   }, [mainRef]);
-
   // .subRef 등장/숨김 effect
   useEffect(() => {
     let observer: IntersectionObserver;
@@ -52,30 +51,30 @@ export const MainPr = () => {
     }
   }, [subRef]);
 
-  const CommentComponent = () => {
-    return (
-      <CommentComponentWrap>
-        <MainObjectWrap ref={mainRef}>
-          <Comment1Wrap>
-            굿피티와 함께,
-          </Comment1Wrap>
-          <Comment2Wrap>
-            발표를 더욱 쉽고 효과적으로!
-          </Comment2Wrap>
-        </MainObjectWrap>
+  return (
+    <CommentComponentWrap>
+      <MainObjectWrap ref={mainRef}>
+        <Comment1Wrap>
+          굿피티와 함께,
+        </Comment1Wrap>
+        <Comment2Wrap>
+          발표를 더욱 쉽고 효과적으로!
+        </Comment2Wrap>
+      </MainObjectWrap>
 
-        <SubObjectWrap ref={subRef}>
-          <Comment3Wrap>
-            발음 교정, 발성 연습, 말하기 속도 조절까지
-          </Comment3Wrap>
-          <Comment4Wrap >
-            발표에 필요한 모든 학습을 도와줄게요!
-          </Comment4Wrap>
-        </SubObjectWrap>
-      </CommentComponentWrap>
-    );
-  };
+      <SubObjectWrap ref={subRef}>
+        <Comment3Wrap>
+          발음 교정, 발성 연습, 말하기 속도 조절까지
+        </Comment3Wrap>
+        <Comment4Wrap >
+          발표에 필요한 모든 학습을 도와줄게요!
+        </Comment4Wrap>
+      </SubObjectWrap>
+    </CommentComponentWrap>
+  );
+};
 
+export const MainPr = () => {
   return (
     <div style={{ width: '100%', position: 'relative' }}>
       <div
@@ -89,10 +88,13 @@ export const MainPr = () => {
           <CommentComponent />
         </EclipseWrap>
       </div>
-      <VideoWrap
-        videoId="9WYE8Pci45k"
-        opts={{ height: '100%', width: '100%' }}
-      />
+
+      <VideoWrap style={{ border: '1px solid violet' }}>
+        <TestWrap
+          videoId="9WYE8Pci45k"
+          opts={{ height: '100%', width: '100%' }}
+        />
+      </VideoWrap>
 
       <GradiantWrap className="gradiant" />
     </div>
@@ -113,19 +115,21 @@ const MainObjectWrap = styled.div`
   align-items: center;
   opacity: 0;
   transition: 1s;
+
+  @media screen and (max-width: 1920px) {
+    top: 30px;
+  }
 `
 
 const Comment1Wrap = styled.div`
   font-size: 64px;
   line-height: 90px;
 `
-
 const Comment2Wrap = styled.div`
   font-size: 64px;
   font-weight: 700;
   line-height: 90px;
 `
-
 const Comment3Wrap = styled.div`
   font-size: '64px';
   font-weight: 700;
@@ -136,7 +140,6 @@ const Comment4Wrap = styled.div`
   line-height: 48px;
 `
 
-
 const SubObjectWrap = styled.div`
   position: relative;
   top: 250px;
@@ -145,6 +148,10 @@ const SubObjectWrap = styled.div`
   align-items: center;
   opacity: 0;
   transition: 1s;
+
+  @media screen and (max-width: 1920px) {
+    top: 30px;
+  }
 `
 
 const EclipseWrap = styled.div`
@@ -154,12 +161,15 @@ const EclipseWrap = styled.div`
   background-image: linear-gradient(#c4c3ff 50%, black);
   background-color: #c4c3ff;
   overflow: hidden;
-
   position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 1920px) {
+    height: 1000px;
+    top: 350px;
+  }
 `;
 
 const GradiantWrap = styled.div`
@@ -169,7 +179,7 @@ const GradiantWrap = styled.div`
   position: relative;
 `;
 
-const VideoWrap = styled(YouTube)`
+const VideoWrap = styled.div`
   height: 768px;
   width: 1364px;
   background: #9d9d9d;
@@ -180,4 +190,17 @@ const VideoWrap = styled(YouTube)`
   left: 50%;
   top: 40%;
   transform: translate(-50%, 40%);
+
+  @media screen and (max-width: 1920px) {
+    border: 4px solid blue;
+    width: 818px;
+    height: 460px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+  }
 `;
+
+const TestWrap = styled(YouTube)`
+  width: 100%;
+`
