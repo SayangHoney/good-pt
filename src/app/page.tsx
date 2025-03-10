@@ -1,7 +1,7 @@
 'use client';
 
 import { MainComponent } from '@/components/main';
-import { TopComponent } from '@/components/Top';
+import NavigationComponent from '@/components/NavigationBar';
 import { MainPr } from '@/components/mainPr';
 import { Overview } from '@/components/overview';
 import { Services } from '@/components/services';
@@ -12,13 +12,18 @@ import { Footer } from '@/components/footer';
 export default function HomePage() {
   return (
     <MainWrap>
+      <nav>
+        <NavigationComponent />
+      </nav>
+
+      {/* Top Floating Bar */}
       <FloatingBtnWrap
         onClick={() => {
           window.location.href = '#top';
         }}>
         Top
       </FloatingBtnWrap>
-      <TopComponent />
+
       <MainComponent />
       <MainPr />
       <Overview />
