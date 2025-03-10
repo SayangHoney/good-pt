@@ -6,6 +6,7 @@ export const MainPr = () => {
   const mainRef = useRef<any>(null);
   const subRef = useRef<any>(null);
 
+  // .mainRef 등장/숨김 effect
   useEffect(() => {
     let observer: IntersectionObserver;
 
@@ -27,6 +28,8 @@ export const MainPr = () => {
       observer.observe(mainRef.current as Element);
     }
   }, [mainRef]);
+
+  // .subRef 등장/숨김 effect
   useEffect(() => {
     let observer: IntersectionObserver;
 
@@ -51,51 +54,25 @@ export const MainPr = () => {
 
   const CommentComponent = () => {
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '80px',
-        }}>
-        <div
-          ref={mainRef}
-          style={{
-            position: 'relative',
-            top: '250px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            opacity: 0,
-            transition: '1s',
-          }}>
-          <div style={{ fontSize: '64px', lineHeight: '90px' }}>
+      <CommentComponentWrap>
+        <MainObjectWrap ref={mainRef}>
+          <Comment1Wrap>
             굿피티와 함께,
-          </div>
-          <div
-            style={{ fontSize: '64px', fontWeight: 700, lineHeight: '90px' }}>
+          </Comment1Wrap>
+          <Comment2Wrap>
             발표를 더욱 쉽고 효과적으로!
-          </div>
-        </div>
+          </Comment2Wrap>
+        </MainObjectWrap>
 
-        <div
-          ref={subRef}
-          style={{
-            position: 'relative',
-            top: '250px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            opacity: 0,
-            transition: '1s',
-          }}>
-          <div style={{ fontSize: '32px', lineHeight: '48px' }}>
+        <SubObjectWrap ref={subRef}>
+          <Comment3Wrap>
             발음 교정, 발성 연습, 말하기 속도 조절까지
-          </div>
-          <div style={{ fontSize: '32px', lineHeight: '48px' }}>
+          </Comment3Wrap>
+          <Comment4Wrap >
             발표에 필요한 모든 학습을 도와줄게요!
-          </div>
-        </div>
-      </div>
+          </Comment4Wrap>
+        </SubObjectWrap>
+      </CommentComponentWrap>
     );
   };
 
@@ -121,6 +98,54 @@ export const MainPr = () => {
     </div>
   );
 };
+
+const CommentComponentWrap = styled.div`
+  display: flex;
+  flex-direction: column;  
+  gap: 80px;
+`
+
+const MainObjectWrap = styled.div`
+  position: relative;
+  top: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: 1s;
+`
+
+const Comment1Wrap = styled.div`
+  font-size: 64px;
+  line-height: 90px;
+`
+
+const Comment2Wrap = styled.div`
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 90px;
+`
+
+const Comment3Wrap = styled.div`
+  font-size: '64px';
+  font-weight: 700;
+  line-height: '90px';
+`
+const Comment4Wrap = styled.div`
+  font-size: 32px;
+  line-height: 48px;
+`
+
+
+const SubObjectWrap = styled.div`
+  position: relative;
+  top: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: 1s;
+`
 
 const EclipseWrap = styled.div`
   width: 100vw;
