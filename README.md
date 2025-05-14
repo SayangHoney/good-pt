@@ -11,9 +11,3 @@ Vercel을 이용해 배포하기 위해 Nextjs로 작업한 퍼블리싱 웹페�
 디자인 퍼블리싱은 처음이라 미숙한 부분이 많습니다.
 
 일부 항목만 반응형으로 작업 되었습니다.
-
-Framework: Nextjs
-
-languate: typescript
-
-styling: Styled-components
