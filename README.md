@@ -1,6 +1,8 @@
 # Good PT Pitches
 
-[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) [![langauge: typescript](https://img.shields.io/badge/language-typescript-blue)](https://github.com/microsoft/TypeScript)
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+[![langauge: typescript](https://img.shields.io/badge/language-typescript-blue)](https://github.com/microsoft/TypeScript)
+[![framework: Nextjs](https://img.shields.io/badge/framework-nextjs-blue)](https://github.com/vercel/next.js)
 
 Vercel을 이용해 배포하기 위해 Nextjs로 작업한 퍼블리싱 웹페이지 입니다.
 
